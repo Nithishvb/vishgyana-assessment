@@ -24,7 +24,7 @@ const ItemCards = ({
   return (
     <div className="my-4 border border-1 border-gray-600 lg:w-[200px] w-[100%]">
       <div
-        className="lg:h-[110px] h-[135px] border-b-2 border-gray-600 cursor-pointer"
+        className="lg:h-[110px] h-[200px] border-b-2 border-gray-600 cursor-pointer"
         onClick={() => handleMealClick(mealId)}
       >
         <img src={mealImage} alt="itemImage" className="w-[100%] h-[100%]" />
