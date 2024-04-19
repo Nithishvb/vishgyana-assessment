@@ -9,6 +9,12 @@ const PlaceOrder = () => {
       <div className="py-2">
         <span className="font-bold">Order</span>
       </div>
+      {state.orders.length === 0 && (
+        <div className="text-lg mt-4 text-center lg:text-left">
+          No orders available at the moment. Start placing orders to see them
+          here!
+        </div>
+      )}
       {state.orders.map((e: any, index: number) => (
         <div
           className="border border-1 border-gray-600 lg:w-[60%] w-[100%] p-2 my-6"

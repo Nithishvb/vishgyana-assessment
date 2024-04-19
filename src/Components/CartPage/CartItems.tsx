@@ -24,28 +24,28 @@ const CartItems = ({
           <img src={mealImage} alt="cart_image" className="lg:w-[70px] lg:h-[70px] w-[50px] h-[50px]" />
         </div>
         <div className="px-4">
-          <p className="font-normal lg:text-lg text-[8px]">{mealName}</p>
-          <span className="font-bold lg:text-lg text-[8px]">₹ 100 /-</span>
+          <p className="font-normal lg:text-lg text-[11px]">{mealName}</p>
+          <span className="font-bold lg:text-lg text-[11px]">₹ 100 /-</span>
         </div>
       </div>
       <div className="flex">
         <div className="flex items-center gap-3 my-4">
           <div className="cursor-pointer">
             <span
-              className="border border-1 border-gray-700 lg:py-1 lg:px-3 py-[1px] px-[10px] font-bold text-lg text-center"
+              className="border border-1 border-gray-700 lg:py-1 lg:px-3 py-[1px] px-[10px] font-bold text-[17px] text-center"
               onClick={() => handleDecrement(mealId)}
             >
               -
             </span>
           </div>
           <div className="cursor-pointer">
-            <span className="border border-1 border-gray-700 lg:py-1 lg:px-5 py-[1px] px-[10px] font-bold text-lg text-center">
+            <span className="border border-1 border-gray-700 lg:py-1 lg:px-5 py-[1px] px-[10px] font-bold text-[17px] text-center">
               {mealQuantity}
             </span>
           </div>
           <div className="cursor-pointer">
             <span
-              className="border border-1 border-gray-700 lg:py-1 lg:px-3 py-[1px] px-[10px] font-bold text-lg text-center"
+              className="border border-1 border-gray-700 lg:py-1 lg:px-3 py-[1px] px-[10px] font-bold text-[17px] text-center"
               onClick={() => handleIncrement(mealId)}
             >
               +

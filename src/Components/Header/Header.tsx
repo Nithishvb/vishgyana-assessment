@@ -10,7 +10,9 @@ const Header = () => {
   return (
     <div className="flex items-center justify-between py-6 bg-gray-300 lg:px-10 px-4">
       <div>
-        <h2 className="text-red-500 font-bold text-xl">LOGO</h2>
+        <Link to={'/'}>
+          <h2 className="text-red-500 font-bold text-xl">LOGO</h2>
+        </Link>
       </div>
       <div>
         <div className="cursor-pointer relative flex gap-6">
