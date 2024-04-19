@@ -1,5 +1,4 @@
 import React from "react";
-import { useCart } from "../../context/context";
 
 type CartItemsPropType = {
   mealId: string;

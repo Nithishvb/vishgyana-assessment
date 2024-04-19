@@ -2,14 +2,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useCategoryFetch from "../../hooks/useCategoryfetch";
 import { useCart } from "../../context/context";
+import { API } from "../../endpoints/endpoints";
 
 const MealDetails = () => {
   const { mealcategory, mealid } = useParams();
-  const { data } = useCategoryFetch(
-    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealid}`
-  );
+  const { data } = useCategoryFetch(API.MEAL_DETAILS(mealid));
   const { state, dispatch } = useCart();
-  console.log("context data", state);
 
   const handleIncrement = () => {
     dispatch({
@@ -43,7 +41,7 @@ const MealDetails = () => {
   };
 
   return (
-    <div className="px-10 py-6">
+    <div className="lg:px-10 px-4 py-6">
       <h1 className="font-semibold text-xl">
         {mealcategory + " / "}
         <span className="font-normal">

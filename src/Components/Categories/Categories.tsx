@@ -1,29 +1,25 @@
 import React from "react";
 import CategoryCard from "../Cards/CategoryCard";
-import useCategoryFetch from "../../hooks/useCategoryfetch";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/context";
 
 const Categories = () => {
+  const navigate = useNavigate();
+  const { state } = useCart();
 
-   const navigate = useNavigate();
-
-  const { data } = useCategoryFetch(
-    "https://www.themealdb.com/api/json/v1/1/categories.php"
-  );
-  
-  const handleCategoryClick = (categoryNname: string) => {
-    navigate(`/category/${categoryNname}`);
-  }
+  const handleCategoryClick = async (categoryName: string) => {
+    navigate(`/category/${categoryName}`);
+  };
 
   return (
-    <div className="px-10 py-5">
+    <div className="lg:px-10 px-4 py-5">
       <div>
         <span className="font-semibold text-xl">Categories</span>
       </div>
       <div className="flex items-center gap-6 flex-wrap">
-        {data &&
-          data?.categories.length > 0 &&
-          data?.categories.map((val: any, i: number) => (
+        {state &&
+          state?.categories.length > 0 &&
+          state?.categories.map((val: any, i: number) => (
             <CategoryCard
               key={i}
               categoryImage={val.strCategoryThumb}

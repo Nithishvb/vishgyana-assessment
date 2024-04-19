@@ -24,16 +24,19 @@ const Cart = () => {
     });
   };
 
-  if(state && state.cart.length === 0){
+  if (state && state.cart.length === 0) {
     return (
       <div className="flex items-center justify-center h-[80vh]">
-        <h2 className="lg:text-2xl font-medium text-center p-[6px] text-[20px]">Your cart is currently empty. Start adding items to your cart to see them here!</h2>
+        <h2 className="lg:text-2xl font-medium text-center p-[6px] text-[20px]">
+          Your cart is currently empty. Start adding items to your cart to see
+          them here!
+        </h2>
       </div>
-    )
+    );
   }
 
   return (
-    <div className="px-10 py-6">
+    <div className="lg:px-10 px-4 py-6">
       <div>
         <h1 className="font-semibold text-xl">Cart Items</h1>
       </div>

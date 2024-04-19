@@ -22,18 +22,29 @@ export const reducer = (state: any, action: any) => {
     case "DECREASE_QUANTITY":
       return {
         ...state,
-        cart: state.cart.map((item: any) =>
-          item.itemId === action.payload.id
-            ? { ...item, itemQuantity: item.itemQuantity > 0 ? item.itemQuantity - 1 : 0 }
-            : item
-        ).filter((item: any) => item.itemQuantity > 0) ,
+        cart: state.cart
+          .map((item: any) =>
+            item.itemId === action.payload.id
+              ? {
+                  ...item,
+                  itemQuantity:
+                    item.itemQuantity > 0 ? item.itemQuantity - 1 : 0,
+                }
+              : item
+          )
+          .filter((item: any) => item.itemQuantity > 0),
       };
     case "ADD_TO_ORDERS":
-        return {
-          ...state,
-          orders: [...state.orders, action.payload],
-          cart: []
-        };
+      return {
+        ...state,
+        orders: [...state.orders, action.payload],
+        cart: [],
+      };
+    case "SET_CATEGORIES":
+      return {
+        ...state,
+        categories: action.payload,
+      };
     default:
       return state;
   }

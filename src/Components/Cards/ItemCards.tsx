@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useCart } from "../../context/context";
 
 type ItemCardPropType = {
@@ -11,8 +11,6 @@ type ItemCardPropType = {
 };
 type CartButtonPropType = {
   mealId: string;
-  mealName: string;
-  mealImage: string;
 };
 
 const ItemCards = ({
@@ -24,7 +22,7 @@ const ItemCards = ({
   isAddedToCart,
 }: ItemCardPropType) => {
   return (
-    <div className="my-4 border border-1 border-gray-600 lg:w-[180px] w-[100%]">
+    <div className="my-4 border border-1 border-gray-600 lg:w-[200px] w-[100%]">
       <div
         className="lg:h-[110px] h-[135px] border-b-2 border-gray-600 cursor-pointer"
         onClick={() => handleMealClick(mealId)}
@@ -36,7 +34,7 @@ const ItemCards = ({
           <p className="truncate">{mealName}</p>
           <p className="font-semibold">₹ 100 /-</p>
         </div>
-        <div>
+        <div className="p-[2px]">
           {!isAddedToCart ? (
             <button
               className="bg-blue-600 text-white p-2 w-[100%] rounded-md"
@@ -53,8 +51,6 @@ const ItemCards = ({
           ) : (
             <CartButtons
               mealId={mealId}
-              mealName={mealName}
-              mealImage={mealImage}
             />
           )}
         </div>
@@ -65,8 +61,6 @@ const ItemCards = ({
 
 export function CartButtons({
   mealId,
-  mealName,
-  mealImage,
 }: CartButtonPropType) {
   const { state, dispatch } = useCart();
 
@@ -89,28 +83,28 @@ export function CartButtons({
   };
 
   return (
-    <div className="flex items-center gap-2 justify-center p-1">
+    <div className="flex items-center gap-2 justify-center p-[1px]">
       <div className="cursor-pointer">
-        <span
-          className="border border-1 border-gray-700 py-1 px-3 font-bold text-lg text-center"
+        <p
+          className="border border-1 border-gray-700 py-[0.24rem] px-3 font-bold text-lg text-center"
           onClick={handleDecrement}
         >
           -
-        </span>
+        </p>
       </div>
       <div className="cursor-pointer">
-        <span className="border border-1 border-gray-700 py-1 px-6 font-bold text-lg text-center">
+        <p className="border border-1 border-gray-700 py-[0.24rem] px-6 font-bold text-lg text-center">
           {state.cart.length > 0 &&
             state.cart.filter((e: any) => e.itemId === mealId)[0].itemQuantity}
-        </span>
+        </p>
       </div>
       <div className="cursor-pointer">
-        <span
-          className="border border-1 border-gray-700 py-1 px-3 font-bold text-lg text-center"
+        <p
+          className="border border-1 border-gray-700 py-[0.24rem] px-3 font-bold text-lg text-center"
           onClick={handleIncrement}
         >
           +
-        </span>
+        </p>
       </div>
     </div>
   );

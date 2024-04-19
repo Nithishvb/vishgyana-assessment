@@ -3,12 +3,11 @@ import { useCart } from "../../context/context";
 
 const PlaceOrder = () => {
   const { state } = useCart();
-  console.log("Order context", state);
 
   return (
     <div className="lg:px-10 px-4 py-5">
       <div className="py-2">
-        <span className="font-bold">Summary</span>
+        <span className="font-bold">Order</span>
       </div>
       {state.orders.map((e: any, index: number) => (
         <div
@@ -22,10 +21,10 @@ const PlaceOrder = () => {
           <div className="py-2">
             <span className="font-bold">Items</span>
           </div>
-          <div className="bg-gray-100 p-2">
+          <div className="bg-gray-200 p-2">
             {e[Object.keys(e)[0]].map((a: any, index: number) => (
               <div
-                className="flex justify-between  m-2 py-2 border-b-2 border-gray-300"
+                className="flex justify-between  m-2 py-3 border-b-2 border-gray-300"
                 key={index}
               >
                 <div className="flex items-center">
